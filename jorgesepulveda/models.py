@@ -23,7 +23,7 @@ class Pelicula(models.Model):
     class Meta:
         ordering = ['titulo']
         constraints = [
-            models.uniqueconstraint(
+            models.UniqueConstraint(
                 fields=['genero', 'titulo'],
                 name='unique_genero_titulo'
             )

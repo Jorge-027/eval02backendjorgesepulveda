@@ -6,7 +6,7 @@
 {% block content %}
 <section class="genre-header genre-{{ genero.acento }}">
     <div class="container">
-        <a class="back-link" href="{% url 'jorgesepulveda:inicio' %}#generos">← Todos los géneros</a>
+        <a class="back-link" href="{% url 'jorgesepulveda:index' %}#generos">← Todos los géneros</a>
         <p class="eyebrow">COLECCIÓN · {{ peliculas|length }} PELÍCULAS</p>
         <h1>{{ genero.nombre }}</h1>
         <p>{{ genero.descripcion }}</p>

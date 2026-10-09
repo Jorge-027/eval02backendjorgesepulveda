@@ -1,0 +1,41 @@
+{% extends 'jorgesepulveda/base.html' %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+<section class="intro-band">
+    <div class="container intro-content">
+        <p class="eyebrow">ARCHIVO DE CINE · EDICIÓN 01</p>
+        <h1>Historias para<br><span>volver a mirar.</span></h1>
+        <p class="intro-copy">Un recorrido por géneros, épocas y mundos. Elige por dónde empezar.</p>
+        <a class="btn btn-light intro-link" href="#generos">Ver géneros <span aria-hidden="true">↓</span></a>
+        <div class="intro-index" aria-hidden="true">01 <span>/</span> {{ generos|length|stringformat:'02d' }}</div>
+    </div>
+</section>
+
+<section class="container genre-section" id="generos">
+    <div class="section-heading">
+        <div>
+            <p class="eyebrow">ENCUENTRA TU PRÓXIMA PELÍCULA</p>
+            <h2>Explora por género</h2>
+        </div>
+        <span class="genre-count">{{ generos|length|stringformat:'02d' }} colecciones</span>
+    </div>
+    <div class="row g-3">
+        {% for genero in generos %}
+        <div class="col-12 col-md-6">
+            <a class="card genre-card genre-{{ genero.acento }}" href="{% url 'jorgesepulveda:detalle_genero' genero.identificador %}">
+                <div class="genre-card-top">
+                    <span class="genre-number">0{{ forloop.counter }}</span>
+                    <span class="genre-arrow" aria-hidden="true">↗</span>
+                </div>
+                <div>
+                    <h3>{{ genero.nombre }}</h3>
+                    <p>{{ genero.descripcion }}</p>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

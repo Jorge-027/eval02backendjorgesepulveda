@@ -5,7 +5,7 @@ GENEROS = [
     {
         'identificador': 'drama',
         'nombre': 'Drama',
-        'descripcion': 'Para hacerte llorar o enojar o ambos'
+		'descripcion': 'Para hacerte llorar o enojar o ambos',
         'acento': 'terracota',
         'peliculas': [
             ('Sueños de libertad', 1994), ('Django Unchained', 2012),
@@ -16,9 +16,9 @@ GENEROS = [
         ],      
     },
     {
-        'identificador': 'ciencia ficcion',
+		'identificador': 'ciencia-ficcion',
         'nombre': 'Ciencia ficción',
-        'descripcion': 'Todo fantasioso para olvidar lo aburrido de lo convencional',
+		'descripcion': 'Todo fantasioso para olvidar lo aburrido de lo convencional',
         'acento': 'lime',
         'peliculas': [
             ('2001: Odisea del espacio', 1968), ('Blade Runner', 1982),
@@ -32,7 +32,7 @@ GENEROS = [
     {
         'identificador': 'comedia',
         'nombre': 'Comedia',
-        'descripcion': 'Para hacerte reir y pasar los malos ratos',
+		'descripcion': 'Para hacerte reir y pasar los malos ratos',
         'acento': 'yellow',
         'peliculas': [
             ('tiempos moderos', 1936), ('Una eva y dos adanes', 1933),
@@ -45,7 +45,7 @@ GENEROS = [
     {
         'identificador': 'terror',
         'nombre': 'Terror',
-        'descripcion': 'Miedo o no miedo',
+		'descripcion': 'Miedo o no miedo',
         'acento': 'terracota',
         'peliculas': [ 
             	('La Cosa', 1982), ('Scream', 1996),
@@ -117,7 +117,7 @@ def detalle_genero(solicitud, genero_slug):
 		{
 			'nombre': nombre,
 			'año': año,
-			'imagen': URLS_IMAGENES[indice % len(URLS_IMAGENES)],
+			'imagen': IMAGENES_PELICULAS.get(nombre, ''),
 		}
 		for indice, (nombre, año) in enumerate(genero['peliculas'])
 	]
