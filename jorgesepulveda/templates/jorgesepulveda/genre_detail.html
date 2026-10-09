@@ -1,0 +1,32 @@
+{% extends 'jorgesepulveda/base.html' %}
+{% load static %}
+
+{% block title %}{{ genero.nombre }}{% endblock %}
+
+{% block content %}
+<section class="genre-header genre-{{ genero.acento }}">
+    <div class="container">
+        <a class="back-link" href="{% url 'jorgesepulveda:inicio' %}#generos">← Todos los géneros</a>
+        <p class="eyebrow">COLECCIÓN · {{ peliculas|length }} PELÍCULAS</p>
+        <h1>{{ genero.nombre }}</h1>
+        <p>{{ genero.descripcion }}</p>
+    </div>
+</section>
+
+<section class="container movie-section">
+    <div class="movie-grid">
+        {% for pelicula in peliculas %}
+        <article class="card movie-card border-0">
+            <div class="poster-wrap">
+                <img src="{% static pelicula.imagen %}" alt="Imagen de {{ pelicula.nombre }}" loading="lazy">
+                <span class="poster-index">{{ forloop.counter|stringformat:'02d' }}</span>
+            </div>
+            <div class="card-body movie-caption">
+                <h2>{{ pelicula.nombre }}</h2>
+                <span>{{ pelicula.anio }}</span>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
